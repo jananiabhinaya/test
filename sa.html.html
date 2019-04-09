@@ -1,0 +1,163 @@
+<html>
+<head><title>Sports Day Registration</title></head>
+<body>
+Enter your name:<input type='text' id='uname' value=''><br><br>
+Enter your emp id:<input type='text' id='empid' value=''><br><br>
+
+
+Select the events:<br><br>
+<input type='radio' id='indoor' name='games' value='Indoor games' onclick='selectgames()'>Indoor Games
+
+<select id='select1' disabled >
+<option value=''></option> 
+<option  value='table tennis'>Table Tennis</option>
+<option  value='carom'>Carom</option>
+<option  value='chess'>Chess</option>
+</select><br><br>
+<input type='button' id='reg1' value='Register' disabled onclick='selgames()'><br><br>
+
+<input type='radio' id='Outdoor' name='games' value='Outdoor games' onclick='selectgames()'>Outdoor Games
+
+<select id="select2"  disabled >
+<option  value=""></option>
+<option value="cricket">Cricket</option>
+<option  value="badminton">Badminton</option>
+<option value="volley ball">Volley ball</option>
+</select><br><br>
+<input type='button' id='reg2' value='Register' disabled onclick='selgames1()'>
+
+
+<script>
+function selectgames()
+{
+var s=document.getElementsByName('games');
+
+
+if(s[0].checked)
+{
+	document.getElementById('select1').disabled=false;
+	document.getElementById('reg1').disabled=false;
+}
+else
+{
+	document.getElementById('select1').disabled=true;
+	document.getElementById('reg1').disabled=true;
+}
+
+
+if(s[1].checked)
+{
+
+	document.getElementById('select2').disabled=false;
+	document.getElementById('reg2').disabled=false;
+}
+else
+{
+	document.getElementById('select2').disabled=true;
+	document.getElementById('reg2').disabled=true;
+}
+}
+
+var count=0;
+var count1=0;
+var count2=0;
+function selgames()
+{
+if(count<2)
+{
+
+	if(count1<1 && count2<=1 )<!--|| c ount1<=1 && count2<2 )-->
+	{
+	var j=document.getElementById('select1').value;
+	
+	if(j=='table tennis')
+	{
+	count=count+1;
+	count1=count1+1;
+	}
+	else if(j=='carom')
+	{
+	count=count+1;
+	count1=count1+1;
+	}
+	else if(j=='chess')
+	{
+	count=count+1;
+	count1=count1+1;
+	}
+	}
+	
+	else if(count1==1 && count2==0){
+		alert('you have registered for 2 indoor activity .Please select an activity from outdoor category')
+	}
+	
+	if(count==2)
+	{
+		alert('You have registered for three events successfully')
+	}
+	
+	
+	 
+}	
+else if(count==2 )
+{
+	alert('You have registered for three events successfully')
+}
+}
+
+function selgames1()
+{
+if(count<2)
+{
+	if(count2<1 && count1<=1)<!-- || count1<=1 && count2<2 )-->
+	{
+	var k=document.getElementById('select2').value;
+
+	if(k=='cricket')
+	{
+	count=count+1;
+	count2=count2+1;
+	}
+	if(k=='badminton')
+	{
+	count=count+1;
+	count2=count2+1;
+	}
+	if(k=='volley ball')
+	{
+	count=count+1;
+	count2=count2+1;
+	}
+	}
+	else if(count2==1 && count1==0)
+	{
+		alert('you have registered for 2 outdoor activity .Please select an activity from indoor category')
+	}
+	
+	if(count==2)
+	{
+		alert('You have registered for three events successfully')
+	}
+	
+	
+
+}
+
+else if(count==2)
+{
+	alert('You have registered for three events successfully')
+}
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
